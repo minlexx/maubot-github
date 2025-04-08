@@ -57,6 +57,13 @@ class TemplateUtil:
         return ref.split("/", 2)[2]
 
     @staticmethod
+    def ref_is_personal(ref: str) -> bool:
+        # Detect personal branches
+        # return True if branch name contains '/', like in
+        #     "refs/heads/username/some-branch"
+        return "/" in ref.split("/", 2)[2]
+
+    @staticmethod
     def join_human_list(
         data: List[str],
         *,
